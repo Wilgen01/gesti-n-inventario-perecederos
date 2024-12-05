@@ -28,7 +28,7 @@
 
 3. **Edita el archivo `docker-compose.yml`:**
    - De ser necesario modifica los puertos de la base de datos en el archivo `docker-compose.yml`.
-   - El servidor debe quedar en `localhost` y el puerto `3000` para que la aplicación funcione correctamente.
+   - El servidor debe quedar en `localhost` y preferiblemente el puerto `3000` si se realiza cambio de puerto se debe modificar el archivo `environment.development.ts` en el proyecto de Angular.
 
 4. **Construye y levanta los servicios:**
    Ejecuta el siguiente comando:
