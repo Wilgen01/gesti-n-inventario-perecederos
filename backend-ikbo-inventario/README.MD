@@ -99,3 +99,4 @@
 ### **Notas Importantes**
 - Si utilizas **Docker**, asegúrate de que los puertos necesarios no estén ocupados en tu máquina.
 - Si instalas sin Docker, debes asegurarte de que el servidor MySQL esté activo y accesible.
+- Esperar hasta que en los logs de la base de datos aparezca el mensaje `Ready for connections` para que la aplicación pueda conectarse a la base de datos de lo contrario recibirá un error connection refused.
