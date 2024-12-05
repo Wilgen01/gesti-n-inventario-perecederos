@@ -1,4 +1,4 @@
-## ** Gestión de Inventario de productos Perecederos**
+## **Gestión de Inventario de productos Perecederos**
 
 Este repositorio alberga la solución a la prueba técnica pospuesta por IKBO, la cual está compuesta por un frontend y un backend.
 
