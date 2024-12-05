@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { InventoryExit } from '../models/InventoryExit.model';
 import { Observable } from 'rxjs';
 import { HttpResponse } from '../../shared/modelos/httpResponse.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { HttpResponse } from '../../shared/modelos/httpResponse.model';
 export class SalidaInventarioService {
   private readonly http = inject(HttpClient);
 
-  public url = 'http://localhost:3000/api/inventory-exit';
+  public url = `${environment.apiUrl}/inventory-exit`;
 
 
   public addInventoryExit(entry: InventoryExit): Observable<HttpResponse<void>> {

@@ -4,6 +4,7 @@ import { ProductosStock } from '../models/productosStock.model';
 import { map, Observable } from 'rxjs';
 import { HttpResponse } from '../../shared/modelos/httpResponse.model';
 import { Productos } from '../models/productos.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ProductosService {
 
   private readonly http = inject(HttpClient);
 
-  public url = 'http://localhost:3000/api/products';
+  public url = `${environment.apiUrl}/products`;
 
 
   public getProductosStock(): Observable<ProductosStock[]> {

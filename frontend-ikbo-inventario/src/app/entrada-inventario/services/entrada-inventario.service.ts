@@ -4,6 +4,7 @@ import { InventoryEntry } from '../models/InventoryEntry.model';
 import { map, Observable } from 'rxjs';
 import { InventoryEntryDetail } from '../models/InventoryEntryDetail.model';
 import { HttpResponse } from '../../shared/modelos/httpResponse.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { HttpResponse } from '../../shared/modelos/httpResponse.model';
 export class EntradaInventarioService {
   private readonly http = inject(HttpClient);
 
-  public url = 'http://localhost:3000/api/inventory-entry';
+  public url = `${environment.apiUrl}/inventory-entry`;
 
 
   public addInventoryEntry(entry: InventoryEntry): Observable<HttpResponse<void>> {
