@@ -1,0 +1,30 @@
+<mat-table [dataSource]="productosDs" matSort  class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Producto </mat-header-cell>
+        <mat-cell *matCellDef="let product"> {{ product.name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad Total </mat-header-cell>
+        <mat-cell *matCellDef="let product"> {{ product.quantity }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="qtyVigente">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Vigente </mat-header-cell>
+        <mat-cell *matCellDef="let product"> {{ product.qtyVigente }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="qtyPorVencer">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Por Vencer </mat-header-cell>
+        <mat-cell *matCellDef="let product"> {{ product.qtyPorVencer }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="qtyVencido">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Vencido </mat-header-cell>
+        <mat-cell *matCellDef="let product"> {{ product.qtyVencido }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

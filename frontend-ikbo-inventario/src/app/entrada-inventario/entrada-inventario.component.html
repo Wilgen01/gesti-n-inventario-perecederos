@@ -1,0 +1,42 @@
+<h1>Crear Entrada de Inventario</h1>
+<form class="mb-4" [formGroup]="inventoryForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-content>
+      <div class="w-full flex justify-around items-center">
+        <mat-form-field>
+          <mat-label>Producto</mat-label>
+          <mat-select formControlName="idProduct" required>
+            <mat-option *ngFor="let product of productos" [value]="product.idProduct">
+              {{ product.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="inventoryForm.get('idProduct')?.invalid">Selecciona un producto.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Cantidad</mat-label>
+          <input matInput formControlName="quantity" type="number" min="1" required />
+          <mat-error *ngIf="inventoryForm.get('quantity')?.invalid">Ingresa una cantidad válida.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Fecha de Expiración</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="expiryDate" required />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="inventoryForm.get('expiryDate')?.invalid">Selecciona una fecha válida.</mat-error>
+        </mat-form-field>
+
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" class="mb-6" [disabled]="inventoryForm.invalid">Guardar</button>
+        </mat-card-actions>
+      </div>
+      
+    </mat-card-content>
+
+  </mat-card>
+</form>
+
+<h1 class="font-bold text-3xl">Listado de entradas de inventario</h1>
+
+<app-tabla-entrada-inventario [entries]="entries"></app-tabla-entrada-inventario>
