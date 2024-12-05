@@ -1,0 +1,47 @@
+
+
+################### PRODUCTS ###################
+
+### Obtiene las entidades de la tabla Products
+GET http://localhost:3000/api/products/get-products
+
+### Obtiene los productos que tienen entradas de inventario y su cantidad es mayor a 0
+GET http://localhost:3000/api/products/get-products-stock
+
+### Inserta un producto en la tabla Products
+POST http://localhost:3000/api/products/create-product
+Content-Type: application/json
+
+{
+    "name": "Carne"
+}
+
+
+
+################### INVENTORY ENTRIES ###################|
+
+### Obtiene las entradas de inventario de un producto calculando su estado
+GET http://localhost:3000/api/inventory-entry/get-entries
+
+### Inserta una entrada de inventario en la tabla InventoryEntries
+POST http://localhost:3000/api/inventory-entry/add-entry
+Content-Type: application/json
+
+{
+    "idProduct": 5,
+    "quantity": 10,
+    "expiryDate": "2024-12-01T00:00:00"
+}
+
+
+################### INVENTORY EXITS ###################|
+
+### Inserta una salida de inventario en la tabla InventoryExits si el producto tiene stock disponible usa la metodología FIFO
+POST http://localhost:3000/api/inventory-exit/add-exit
+Content-Type: application/json
+
+{
+    "idProduct": 1,
+    "quantity": 5000,
+    "date": "2025-01-01T00:00:00"
+}
